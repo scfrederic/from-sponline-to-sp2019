@@ -1,30 +1,28 @@
-# Deploy SharePoint Online Framework Web Parts on SharePoint 2019
-Here we will explain how to deploy SharePoint Framework Client-Side Web Parts made for SharePoint Online onto SharePoint 2019 On-Premises Servers.
+# Deploy SharePoint Online Modern Web Parts on SharePoint 2019
+Here we will explain how to deploy SharePoint Framework Client-Side Web Parts made for SharePoint Online on SharePoint 2019 On-Premises Servers.
 
-## Step 1: Find on GitHub a SharePoint Online Web Part that you want to add on your SP2019 Server
+## 1. Find a SharePoint Online Web Part that you want to add on your SP2019 Server
 
 For example, let's consider the React Script Editor Web Part. This web part is really important since it brings an equivalent of the Content Editor Web Part to the Modern pages.
 
-You can donwload the react-script-editor web part here:
+You can donwload the react-script-editor web part from GitHub here :
 https://github.com/SharePoint/sp-dev-fx-webparts/tree/master/samples/react-script-editor
 
 (to download this repository, you can go to the root folder https://github.com/SharePoint/sp-dev-fx-webparts and click on "Clone or download" -> Download ZIP)
 
-## Step 2: Prepare your SharePoint 2019 On-Premises environment
+## 2. Prepare your SharePoint 2019 On-Premises environment and add a CDN library
 
-Create and configure the app catalog
-Add a library named "CDN" and make sure every member of your organisation has read access on it
+Create and configure the App Catalog. Then **add a library named "CDN"** to your App Catalog site and make sure every member of your organisation has read access to it.
 
-## Step 3: Modify the downloaded folder to make it work with SharePoint 2019 Framework
+## 3. Modify the downloaded folder to make it work with SharePoint 2019 Framework
 
 Once the repository downloaded on your computer, please unzip the downloaded file and go to the "script-editor" folder (in sp-dev-fx-webparts-master\samples\react-script-editor).
 
-From here, you'll have to modify the following files to make them compatible with SharePoint 2019:
-* package.json
-* config\write-manifests.json
+From here, you'll have to modify the package.json and config\write-manifests.json files to make them compatible with SharePoint 2019.
 
-### Modify the package.json file
-Edit the "package.json" file and replace every value in front of "@microsoft/..." by "^1.5.1".
+### 3.1 Modify the package.json file
+Since Sharepoint Online and SharePoint 2019 don't use the same framework version, you'll have to **modify the framework settings**. To do so, please edit the **"package.json"** file and replace every value in front of "@microsoft/..." by "**1.4.1**".
+
 For example,
 ```shell
 "@microsoft/load-themed-styles": "^1.5.1"
@@ -34,8 +32,8 @@ will be changed in
 "@microsoft/load-themed-styles": "^1.4.1"
 ```
 
-### Modify the config\write-manifests.json
-Open the "config" folder and then edit the "write-manifests.json" file to add the path to the CDN SharePoint library you have created at step 3.
+### 3.2 Modify the config\write-manifests.json
+Open the "config" folder and then **edit the "write-manifests.json" file to add the path to the CDN library** (created at step 3).
 
 For example,
 ```shell
@@ -46,12 +44,25 @@ will be replaced by
 "cdnBasePath": "https://intranet.mysharepointdomain.com/sites/AppCatalog/CDN"
 ```
 
-## Step 4: Package the solution
+## 4. Package the solution
 Open a command prompt (cmd.exe), go to the "react-script-editor" directory you have modified and run the following commands:
 ```shell
+cd C:\mydownloads\sp-dev-fx-webparts-master\samples\react-script-editor
 npm install
-gulp –ship
-gulp package-solution –ship
+gulp --ship
+gulp package-solution --ship
 ```
 
-## Step 5: Add the solution to the SharePoint 2019 App Catalog
+## 5. Add the solution to the SharePoint 2019 App Catalog
+Now that the solution is packaged, you can add it to SharePoint
+
+### 5.1 Add the dependencies
+Several .js and .json files have been generated into the **"\temp\deploy"** folder of your computer. Please **drag & drop them into the CDN library of your app catalog** (this library was created at step 2).
+
+### 5.2 Add the app
+Take the **.sppkg** file from the **"\sharepoint\solution"** folder of your computer and **upload it to the "Apps for SharePoint"** section of your App Catalog.
+
+You can now add this app to your SharePoint 2019 site collections. Enjoy SharePoint Online Web Parts in SharePoint Server 2019! :-D
+
+If you have any questions or feedback, please do not hesitate.
+
