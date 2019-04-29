@@ -12,7 +12,7 @@ https://github.com/SharePoint/sp-dev-fx-webparts/tree/master/samples/react-scrip
 
 ## 2. Prepare your SharePoint 2019 On-Premises environment and add a CDN library
 
-Create and configure the App Catalog. Then **add a library named "CDN"** to your App Catalog site and make sure every member of your organisation has read access to it.
+Create and configure the App Catalog. Then **add a library named "CDN" to your App Catalog site** and make sure every member of your organisation has read access to it.
 
 ## 3. Modify the downloaded folder to make it work with SharePoint 2019 Framework
 
@@ -33,7 +33,7 @@ will be changed in
 ```
 
 ### 3.2 Modify the config\write-manifests.json
-Open the "config" folder and then **edit the "write-manifests.json" file to add the path to the CDN library** (created at step 3).
+Open the "config" folder and then **edit the "write-manifests.json" file and replace the PATH TO CDN by the path of your CDN library** (created at step 3).
 
 For example,
 ```shell
@@ -62,7 +62,8 @@ Several .js and .json files have been generated into the **"\temp\deploy"** fold
 ### 5.2 Add the app
 Take the **.sppkg** file from the **"\sharepoint\solution"** folder of your computer and **upload it to the "Apps for SharePoint"** section of your App Catalog.
 
-You can now add this app to your SharePoint 2019 site collections. Enjoy SharePoint Online Web Parts in SharePoint Server 2019! :-D
+## 6. Add the Web Part to your sites
+You can now add this app to your SharePoint 2019 site collections. Enjoy SharePoint Online Web Parts on SharePoint Server 2019! :-D
 
 If you have any questions or feedback, please do not hesitate.
 
