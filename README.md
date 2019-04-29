@@ -54,7 +54,7 @@ gulp package-solution --ship
 ```
 
 ## 5. Add the solution to the SharePoint 2019 App Catalog
-Now that the solution is packaged, you can add it to SharePoint
+Now that the solution is packaged, you can add it to SharePoint.
 
 ### 5.1 Add the dependencies
 Several .js and .json files have been generated into the **"\temp\deploy"** folder of your computer. Please **drag & drop them into the CDN library of your app catalog** (this library was created at step 2).
@@ -63,7 +63,8 @@ Several .js and .json files have been generated into the **"\temp\deploy"** fold
 Take the **.sppkg** file from the **"\sharepoint\solution"** folder of your computer and **upload it to the "Apps for SharePoint"** section of your App Catalog.
 
 ## 6. Add the Web Part to your sites
-You can now add this app to your SharePoint 2019 site collections. Enjoy SharePoint Online Web Parts on SharePoint Server 2019! :-D
+
+This app is now visible in the apps of your organization and can be added to your SharePoint 2019 site collections. Enjoy SharePoint Online Web Parts on SharePoint Server 2019! :-D
 
 If you have any questions or feedback, please do not hesitate.
 
