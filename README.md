@@ -49,7 +49,7 @@ Open a command prompt (cmd.exe), go to the "react-script-editor" directory you h
 ```shell
 cd C:\mydownloads\sp-dev-fx-webparts-master\samples\react-script-editor
 npm install
-gulp --ship
+gulp bundle --ship
 gulp package-solution --ship
 ```
 
